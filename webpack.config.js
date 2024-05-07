@@ -7,13 +7,14 @@ const __dirname = path.dirname(__filename);
 
 export default {
   mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
   },
   resolve: {
+    extensions: [".ts", ".js"],
     alias: {
       "@": path.resolve(__dirname, "src/"), // src 폴더를 '@'로 alias 설정
     },
@@ -31,6 +32,11 @@ export default {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      }
     ],
   },
 
