@@ -10,10 +10,9 @@ const router = createRouter();
 
 router.addRoute("#/", pages.home).addRoute("#/melon", pages.melon).start();
 
-// window.addEventListener("click", (event: MouseEvent) => {
-//   const target = event.target as HTMLElement;
-//   console.log(target);
-//   if (target.matches("[data-navigate]")) {
-//     router.navigate(target.dataset.navigate as string);
-//   }
-// });
+window.addEventListener("click", (event: MouseEvent) => {
+  const target = event.target as HTMLElement;
+  if (target.matches("[data-navigate]")) {
+    router.navigate(target.dataset.navigate as string);
+  }
+});
