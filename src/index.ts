@@ -3,22 +3,25 @@ import { urlParamsType } from "./router";
 
 const container: HTMLElement = document.querySelector("main") as HTMLElement;
 const pages = {
-  home: () => (container.innerText = "home page"),
-  spotify: () => (container.innerText = "spotify page"),
-  board: (params?: urlParamsType) =>
-    (container.innerText = `${params?.name} ${params?.song}`),
+  tech: () => (container.innerText = "tech page"),
+  design: () => (container.innerText = "design page"),
+  recruit: () => (container.innerText = "recruit page"),
+  article: (params?: urlParamsType) =>
+    (container.innerText = `${params?.title} `),
 };
 
 const router = createRouter();
 
 router
-  .addRoute("#/", pages.home)
-  .addRoute("#/spotify", pages.spotify)
-  .addRoute("#/spotify/:name/:song", pages.board)
+  .addRoute("#/", pages.tech)
+  .addRoute("#/design", pages.design)
+  .addRoute("#/recruit", pages.recruit)
+  .addRoute("#/article/:title", pages.article)
   .start();
 
 window.addEventListener("click", (event: MouseEvent) => {
   const target = event.target as HTMLElement;
+  console.log("url", target.dataset.navigate);
   if (target.matches("[data-navigate]")) {
     router.navigate(target.dataset.navigate as string);
   }

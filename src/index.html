@@ -9,18 +9,18 @@
     </head>
     <body style="margin:0px">
         <header>
-            <div style="display: flex;">
+            <div style="display: flex; justify-content: space-between;">
                 <a href="/" >
                     <img src="../public/logo.png" alt="toss-logo" >
                 </a>
                 <div>
-                    <button>디자인</button>
-                    <button>개발</button>
-                    <button>채용 바로가기</button>
+                    <button data-navigate="/design">디자인</button>
+                    <button data-navigate="/">개발</button>
+                    <button data-navigate="/recruit">채용 바로가기</button>
                 </div>
-            </div>
-            
+            </div>  
         </header>
+        <hr>
         <main class="app"></main>
         <script>
             
