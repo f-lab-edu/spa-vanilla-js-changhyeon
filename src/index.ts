@@ -1,9 +1,10 @@
 import createRouter from "./router";
 import { urlParamsType } from "./router";
+import Tech from "./pages/Tech";
 
 const container: HTMLElement = document.querySelector("main") as HTMLElement;
 const pages = {
-  tech: () => (container.innerText = "tech page"),
+  tech: () => (container.innerHTML = Tech()),
   design: () => (container.innerText = "design page"),
   recruit: () => (container.innerText = "recruit page"),
   article: (params?: urlParamsType) =>
