@@ -1,5 +1,6 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -44,6 +45,11 @@ export default {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public', to: 'public' }
+      ]
+    })
   ],
   devServer: {
     historyApiFallback: true,
